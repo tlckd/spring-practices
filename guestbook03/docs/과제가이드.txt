@@ -1,0 +1,21 @@
+com.douzone.guestbook.controller
+com.douzone.guestbook.repository
+com.douzone.guestbook.vo
+
+1) index
+GET /guestbook03
+index.jsp
+
+2) delete(@PathVariable("no") Long no)                  
+GET /guestbook03/delete/10
+delete.jsp
+
+3) delete(
+	@PathVariable("no") Long no,
+	@RequestParm(value="password", required=true, defaultValue="") String password)
+POST /guestbook03/delete/10
+redirect:/
+
+4) add(GuestbookVo vo)
+POST /guestbook03
+redirect:/  
