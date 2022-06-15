@@ -12,7 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.douzone.container.soundsystem.CDPlayer;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes={CDPalyerConfig.class})
+@ContextConfiguration(classes={CDPlayerConfig.class})
 public class CDPlayerJavaConfigTest {
 	// @Rule
 	// public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();

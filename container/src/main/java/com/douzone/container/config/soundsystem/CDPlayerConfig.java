@@ -5,5 +5,5 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan(basePackages={"com.douzone.container.soundsystem"})
-public class CDPalyerConfig {
+public class CDPlayerConfig {
 }
