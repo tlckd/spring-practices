@@ -59,6 +59,67 @@
 		</constructor-arg>
 	</bean>
 
-	<!-- 08. 빈설정: 생성자 Wiring Collection  -->
+	<!-- 08. 빈설정: 생성자 Wiring Collection -->
+	<bean id="avengersTriplePack" class="com.douzone.container.videosystem.DVDPack">
+		<constructor-arg name="title" value="Avengers Triple Pack"/>
+		<constructor-arg name="dvds">
+			<list>
+				<ref bean="avengersInfinityWar" />
+				<ref bean="avengersEndgame" />
+				<ref bean="avengersAgeofUltron" />
+			</list>
+		</constructor-arg>
+	</bean>
 
+	<!-- 09. 빈설정: 프로퍼티를 사용한 빈설정1 -->
+	<bean id="avengersExpansionEdition1" class="com.douzone.container.videosystem.BlankDisc">
+		<property name="title" value="Avengers Expansion Edition1"/>
+		<property name="studio" value="MARVEL"/>
+	</bean>	
+	
+	<!-- 10. 빈설정: 프로퍼티를 사용한 빈설정2 -->
+	<bean id="avengersExpansionEdition2" class="com.douzone.container.videosystem.BlankDisc" 
+		p:title="Avengers Expansion Edition2"
+		p:studio="MARVEL">
+		<property name="actors">
+			<list>
+				<value>Robert Downey Jr.</value>
+				<value>Scallette</value>
+				<value>Chris Evans</value>
+			</list>
+		</property>		
+	</bean>	
+	
+	<!-- 11. 빈설정: 프로퍼티를 사용한 빈설정3 -->
+	<util:list id="actorList">
+		<value>Robert Downey Jr.</value>
+		<value>Scallette</value>
+		<value>Chris Evans</value>
+	</util:list>		
+	<bean id="avengersExpansionEdition3" class="com.douzone.container.videosystem.BlankDisc"
+		p:title="Avengers Expansion Edition3"
+		p:studio="MARVEL"
+		p:actors-ref="actorList" />
+
+	<!-- 12. 빈주입: 생성자1 -->
+	<bean id="dvdPlayer1" class="com.douzone.container.videosystem.DVDPlayer">
+		<constructor-arg ref="ironMan" />
+	</bean>
+	
+	<!-- 13. 빈주입: 생성자2: c-namespace의 argument name을 사용하는 방법: Spring 3.x부터 지원 -->
+	<bean id="dvdPlayer2" class="com.douzone.container.videosystem.DVDPlayer"
+		c:dvd-ref="ironMan" />
+	
+	<!-- 14. 빈주입: 생성자3: c-namespace의 argument index을 사용하는 방법: Spring 3.x부터 지원 -->
+	<bean id="dvdPlayer3" class="com.douzone.container.videosystem.DVDPlayer"
+		c:_0-ref="ironMan" />
+
+	<!-- 15. 빈주입: 프로퍼티1 -->
+	<bean id="dvdPlayer4" class="com.douzone.container.videosystem.DVDPlayer">
+		<property name="dvd" ref="ironMan" />
+	</bean>
+	
+	<!-- 16. 빈주입: 프로퍼티2: p-namespace를 사용-->
+	<bean id="dvdPlayer5" class="com.douzone.container.videosystem.DVDPlayer"
+		p:dvd-ref="ironMan" />
 </beans>

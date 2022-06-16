@@ -7,6 +7,10 @@ public class BlankDisc implements DigitalVideoDisc {
 	private String studio;
 	private List<String> actors;
 	
+	public BlankDisc() {
+		
+	}
+	
 	public BlankDisc(String title, String studio) {
 		this.title = title;
 		this.studio = studio;
@@ -23,4 +27,22 @@ public class BlankDisc implements DigitalVideoDisc {
 		return "Playing Movie " + studio + "'s " + title;
 	}
 
+	@Override
+	public String toString() {
+		return "BlankDisc [title=" + title + ", studio=" + studio + ", actors=" + actors + "]";
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setStudio(String studio) {
+		this.studio = studio;
+	}
+
+	public void setActors(List<String> actors) {
+		this.actors = actors;
+	}
+
+	
 }
